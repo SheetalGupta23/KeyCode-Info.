@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Find KeyCode</title>
+	<style>
+		*{padding: 0px;
+			margin: 0px;}
+
+		body{background-color: #c9c7c7;}
+
+		#top{height: 60px;
+			width: 100%;
+			box-sizing: border-box;
+			background-color: #16044f;}
+
+		#txt{color: white;
+			font-family: arial;
+			text-align: center;
+			line-height: 60px;}
+
+		#head{line-height: 70px;
+			font-size: 30px;}
+
+		#with{position: relative;
+			left: 150px;
+			top: -50px;
+			font-size: 30px;}
+
+		#codeBox{height: 180px;
+			width: 200px;
+			box-sizing: border-box;
+			line-height: 100px;}
+
+		#code{font-size: 150px;
+			line-height: 170px;}
+
+		h3{font-weight: normal;
+			font-family: arial;}
+
+		#b1,#b2,#b3{height: 300px;
+			width: 350px;
+			box-sizing: border-box;
+			background-color: white;
+			position: relative;}
+
+		#b1{left: -400px;
+			top: 60px;}
+
+		#b2{left: -10px;
+			top: -240px;}
+
+		#b3{left: 390px;
+			top: -540px;}
+
+#b1:hover{transform: scale(1.09);
+transition: 0.7s;}
+
+#b2:hover{transform: scale(1.09);
+transition: 0.7s;}
+
+#b3:hover{transform: scale(1.09);
+transition: 0.7s;}
+
+		#one,#two,#three{height: 50px;
+			width: 350px;
+			box-sizing: border-box;
+			background-color: #16044f;}
+
+		#txt1,#txt2,#txt3{color: white;
+			font-family: arial;
+			font-size: 25px;
+			line-height: 45px;}
+
+		#letter,#keyplace,#key{line-height: 250px;
+			font-family: arial;
+			font-size: 25px;}
+
+	</style>
+</head>
+<body>
+	<header id="top">
+		<h1 id="txt">Find Codes of Key</h1>
+	</header>
+
+	<center>
+		<section>
+		<p id="head">JavaScript Key Code</p><div id="with"></div>
+		<div id="codeBox">
+			<p id="code"></p>
+		</div>
+			<h3>keyCode Information</h3>
+
+				<div id="b1">
+					<main id="one">
+						<p id="txt1">event.key</p>
+						<p id="letter"></p>
+					</main>
+				</div>
+	
+				<div id="b2">
+					<main id="two">
+						<p id="txt2">event.location</p>
+						<p id="keyplace"></p>
+					</main>
+				</div>
+	
+				<div id="b3">
+					<main id="three">
+						<p id="txt3">event.code</p>
+						<p id="key"></p>
+					</main>
+				</div>
+			</section>
+	</center>
+
+	<script>
+		var withtopic=document.getElementById('with');
+		var mainvalue=document.getElementById('code');
+		var letter=document.getElementById("letter");
+		var keylocation=document.getElementById('keyplace');
+		var keyletter=document.getElementById('key');
+
+		window.addEventListener('keydown',function(a){
+			withtopic.innerHTML=a.keyCode;
+			mainvalue.innerHTML=a.keyCode;
+			letter.innerHTML=a.key;
+			keyletter.innerHTML=a.code;
+
+			if(a.shiftKey || a.ctrlKey)
+			{
+				keylocation.innerHTML="Special Key";
+			}
+			else
+			{
+				keylocation.innerHTML="General key";
+			}
+		});
+	</script>
+</body>
+</html>
