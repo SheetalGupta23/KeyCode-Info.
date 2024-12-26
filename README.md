@@ -5,8 +5,6 @@ Features
 Detects the key pressed, its keycode, and the event type.
 Displays key details in a clean and responsive interface.
 Lightweight and easy to use for testing key inputs.
-Demo
-Live Demo (Add your hosted demo link here, e.g., GitHub Pages or Netlify.)
 
 How It Works
 The application listens for keyboard events (keydown, keypress, or keyup).
