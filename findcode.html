@@ -1,142 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Find KeyCode</title>
-	<style>
-		*{padding: 0px;
-			margin: 0px;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-		body{background-color: #c9c7c7;}
 
-		#top{height: 60px;
-			width: 100%;
-			box-sizing: border-box;
-			background-color: #16044f;}
+  <title>Responsive keycode finder</title>
 
-		#txt{color: white;
-			font-family: arial;
-			text-align: center;
-			line-height: 60px;}
+  <style>
+    *{padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+      text-align: center;}
 
-		#head{line-height: 70px;
-			font-size: 30px;}
+      body{background-color: lightgray;
+        padding: 0px;
+        margin: 0px;  }
 
-		#with{position: relative;
-			left: 150px;
-			top: -50px;
-			font-size: 30px;}
+      .row {margin: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;}
 
-		#codeBox{height: 180px;
-			width: 200px;
-			box-sizing: border-box;
-			line-height: 100px;}
+      .container-fluid{padding: 0px;
+        margin: 0px;}
 
-		#code{font-size: 150px;
-			line-height: 170px;}
 
-		h3{font-weight: normal;
-			font-family: arial;}
+    #box_one{height: 55px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #150659;
+      position: absolute;
+      top: 0px;}
 
-		#b1,#b2,#b3{height: 300px;
-			width: 350px;
-			box-sizing: border-box;
-			background-color: white;
-			position: relative;}
+    h1{color: white;}
 
-		#b1{left: -400px;
-			top: 60px;}
+    h2{line-height: 150px;}
 
-		#b2{left: -10px;
-			top: -240px;}
+    #code-box{height: 150px;
+      width: 180px;
+      position: relative;
+      top: -90px;}
 
-		#b3{left: 390px;
-			top: -540px;}
+    #code{font-size: 130px;
+      position: relative;
+      top:20px;}
 
-#b1:hover{transform: scale(1.09);
-transition: 0.7s;}
+    #down-line{position: relative;
+      top: -40px;}
 
-#b2:hover{transform: scale(1.09);
-transition: 0.7s;}
+  #box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;}
 
-#b3:hover{transform: scale(1.09);
-transition: 0.7s;}
+  #info-one {
+    height: 280px;
+    width: 400px;
+    border: 1px solid black;
+    background-color: white;}
 
-		#one,#two,#three{height: 50px;
-			width: 350px;
-			box-sizing: border-box;
-			background-color: #16044f;}
+  #top{height: 50px;
+    background-color: #150659;}
 
-		#txt1,#txt2,#txt3{color: white;
-			font-family: arial;
-			font-size: 25px;
-			line-height: 45px;}
+  #line{color: white;
+    line-height: 40px;}
 
-		#letter,#keyplace,#key{line-height: 250px;
-			font-family: arial;
-			font-size: 25px;}
+  #box-container p{color: black;
+    font-size: 35px;
+    line-height: 220px;}
 
-	</style>
+  </style>
+
 </head>
 <body>
-	<header id="top">
-		<h1 id="txt">Find Codes of Key</h1>
-	</header>
+  <div class="container-fluid">
+    <div class="row">
+      <header id="box_one" class="col-12 col-md-6 col-lg-4">
+        <h1>Find Codes of Key</h1>
+      </header>
 
-	<center>
-		<section>
-		<p id="head">JavaScript Key Code</p><div id="with"></div>
-		<div id="codeBox">
-			<p id="code"></p>
-		</div>
-			<h3>keyCode Information</h3>
+      <h2>JavaScript KeyCode <span id="side-code"></span></h2>
 
-				<div id="b1">
-					<main id="one">
-						<p id="txt1">event.key</p>
-						<p id="letter"></p>
-					</main>
-				</div>
-	
-				<div id="b2">
-					<main id="two">
-						<p id="txt2">event.location</p>
-						<p id="keyplace"></p>
-					</main>
-				</div>
-	
-				<div id="b3">
-					<main id="three">
-						<p id="txt3">event.code</p>
-						<p id="key"></p>
-					</main>
-				</div>
-			</section>
-	</center>
+      
+        <div id="code-box" class="col-12 col-md-6 col-lg-4"><p id="code"></p></div>
 
-	<script>
-		var withtopic=document.getElementById('with');
-		var mainvalue=document.getElementById('code');
-		var letter=document.getElementById("letter");
-		var keylocation=document.getElementById('keyplace');
-		var keyletter=document.getElementById('key');
+        <h3 id="down-line">KeyCode Information</h3>
 
-		window.addEventListener('keydown',function(a){
-			withtopic.innerHTML=a.keyCode;
-			mainvalue.innerHTML=a.keyCode;
-			letter.innerHTML=a.key;
-			keyletter.innerHTML=a.code;
+        <div id="box-container">
 
-			if(a.shiftKey || a.ctrlKey)
-			{
-				keylocation.innerHTML="Special Key";
-			}
-			else
-			{
-				keylocation.innerHTML="General key";
-			}
-		});
-	</script>
+          <div id="info-one">
+            <div id="top">
+              <h3 id="line">event.key</h3>
+              <p id="value-one"></p>
+            </div>
+          </div>
+
+          <div id="info-one">
+            <div id="top">
+              <h3 id="line">event.location</h3>
+              <p id="value-two"></p>
+            </div>
+          </div>
+
+          <div id="info-one">
+            <div id="top">
+              <h3 id="line">event.code</h3>
+              <p id="value-three"></p>
+            </div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    
+    var sideCode=document.getElementById('side-code');
+    var code=document.getElementById('code');
+    var one=document.getElementById('value-one');
+    var two=document.getElementById('value-two');
+    var three=document.getElementById('value-three');
+
+    window.addEventListener('keydown',function(a){
+      sideCode.innerHTML=a.keyCode;
+      code.innerHTML=a.keyCode;
+      one.innerHTML=a.key;
+      three.innerHTML=a.code;
+
+      if(a.shift || a.ctrlkey)
+      {
+        two.innerHTML="Special Key";
+      }
+      else
+      {
+        two.innerHTML="General Key";
+      }
+    });
+  </script>
 </body>
 </html>
